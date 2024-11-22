@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "name": "Financial Accounting",
+        "description": "An introduction to financial accounting principles and practices.",
+        "subject": "Accounting",
+        "credits": 3
+    },
+    {
+        "id": 2,
+        "name": "Managerial Accounting",
+        "description": "Focuses on the use of accounting information for internal decision-making.",
+        "subject": "Accounting",
+        "credits": 3
+    },
+    {
+        "id": 3,
+        "name": "Payroll Accounting",
+        "description": "Covers the processes involved in payroll accounting and related tax issues.",
+        "subject": "Accounting",
+        "credits": 3
+    },
+    {
+        "id": 4,
+        "name": "Intermediate Accounting I",
+        "description": "A deeper exploration into financial accounting topics and standards.",
+        "subject": "Accounting",
+        "credits": 3
+    },
+    {
+        "id": 5,
+        "name": "Cost Accounting I",
+        "description": "Introduction to cost accounting concepts and techniques.",
+        "subject": "Accounting",
+        "credits": 3
+    },
+    {
+        "id": 6,
+        "name": "Introduction to Circuit Analysis",
+        "description": "Fundamentals of electrical circuit analysis.",
+        "subject": "Electronics/Computer Technology",
+        "credits": 4
+    },
+    {
+        "id": 7,
+        "name": "Digital Fundamentals",
+        "description": "Basic principles of digital electronics.",
+        "subject": "Electronics/Computer Technology",
+        "credits": 3
+    },
+    {
+        "id": 8,
+        "name": "Introduction to Electronics and Projects",
+        "description": "Hands-on projects to understand electronic concepts.",
+        "subject": "Electronics/Computer Technology",
+        "credits": 3
+    },
+    {
+        "id": 9,
+        "name": "Soldering",
+        "description": "Techniques and practices in soldering electronic components.",
+        "subject": "Electronics/Computer Technology",
+        "credits": 1
+    },
+    {
+        "id": 10,
+        "name": "Introduction to Teaching",
+        "description": "Overview of the teaching profession and educational practices.",
+        "subject": "Education",
+        "credits": 3
+    },
+    {
+        "id": 11,
+        "name": "Child and Adolescent Development",
+        "description": "Study of developmental stages from childhood through adolescence.",
+        "subject": "Education",
+        "credits": 3
+    },
+    {
+        "id": 12,
+        "name": "Educational Psychology",
+        "description": "Psychological principles applied to education.",
+        "subject": "Education",
+        "credits": 3
+    },
+    {
+        "id": 13,
+        "name": "Multicultural Teaching",
+        "description": "Strategies for teaching in diverse cultural settings.",
+        "subject": "Education",
+        "credits": 3
+    },
+    {
+        "id": 14,
+        "name": "Technology in Education",
+        "description": "Integration of technology into educational environments.",
+        "subject": "Education",
+        "credits": 3
+    },
+    {
+        "id": 15,
+        "name": "Introduction to Physical and Health Education for Elementary Teachers",
+        "description": "Fundamentals of physical and health education for young learners.",
+        "subject": "Education",
+        "credits": 2
+    },
+    {
+        "id": 16,
+        "name": "Introduction to Multicultural Teaching",
+        "description": "Exploration of teaching methods in multicultural settings.",
+        "subject": "Education",
+        "credits": 3
+    },
+    {
+        "id": 17,
+        "name": "Educational Psychology for Teachers",
+        "description": "Application of psychological theories in teaching.",
+        "subject": "Education",
+        "credits": 3
+    },
+    {
+        "id": 18,
+        "name": "Best Classroom Practices in Teaching Learning and Assessment",
+        "description": "Effective strategies for classroom management and assessment.",
+        "subject": "Education",
+        "credits": 3
+    },
+    {
+        "id": 19,
+        "name": "Introduction to Scientific Inquiry",
+        "description": "Methods and principles of scientific research.",
+        "subject": "Education",
+        "credits": 3
+    },
+    {
+        "id": 20,
+        "name": "The Exceptional Child",
+        "description": "Study of children with diverse learning needs.",
+        "subject": "Education",
+        "credits": 3
+    }
+]
