@@ -66,6 +66,16 @@ h1 {
     border-color: #ffffff; /* Optional: Customize the toggle button */
 }
 
+.hero-section {
+    background-image: url("/images/hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blocks {
+    padding-top: 30px; /*Adds padding to containers on index page*/
+    padding-bottom: 50px;
+}
 
 .pagination {
     margin-top: 20px;
@@ -103,3 +113,12 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/*drop down button placement*/
+#subjects {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+#subjects .btn {
+    margin-left: 5px;
+}

@@ -34,6 +34,21 @@ app.get('/courses/search', (req, res) => {
     res.render('courses', { courses: filteredCourses, currentPage: 1, totalPages: 1 });
 });
 
+// Routes to handle subject selection
+
+app.get('/courses/sub-select', (req, res) => {
+    const sub = req.query.sub.toLowerCase()
+    const filteredCourses = courses.filter(course =>
+        course.subject.toLowerCase().includes(sub)
+    )
+    const page = parseInt(req.query.page) || 1; // adding pagination to filtered courses specifically
+    const limit = 12;
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+    const paginatedCourses = filteredCourses.slice(startIndex, endIndex);
+    res.render('courses', { courses: paginatedCourses, currentPage: 1, totalPages:  Math.ceil(filteredCourses.length / limit) })
+})
+
 // Route to display paginated courses
 app.get('/courses', (req, res) => {
     const page = parseInt(req.query.page) || 1; // Current page (default to 1)
