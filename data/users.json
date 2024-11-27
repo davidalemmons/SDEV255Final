@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "David",
+    "email": "teacher1@example.com",
+    "password": "$2a$10$ujtZ6a44Hvyld0g/Du1KRuzlAWUODq8rhOs6elPIwdJRoALtVUdF6",
+    "role": "teacher"
+  },
+  {
+    "id": 2,
+    "name": "Student",
+    "email": "student@example.com",
+    "password": "$2a$10$QPei3/0iiZlbz4550CMAwOR10Zvuxezi2jUtJjnRVTNngdowxtmOK",
+    "role": "student"
+  },
+  {
+    "id": 3,
+    "name": "David",
+    "email": "david@example.com",
+    "password": "$2a$10$WT6XDxZzfSVS69eTKU9v8e8Tve6ODCHxyEYdimAmsmDCeRVD.1k8S",
+    "role": "student"
+  },
+  {
+    "id": 4,
+    "name": "John",
+    "email": "john@example.com",
+    "password": "$2a$10$W/VjIngIS8XjDwStEw8VAONjCF63Pzqn8vLGaUxCUREieVcsp2.JS",
+    "role": "student"
+  }
+]
