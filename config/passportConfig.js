@@ -1,41 +1,59 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
-const fs = require('fs');
+const mysql = require('mysql2/promise');
+require('dotenv').config(); // Load .env for credentials
 
-const readUsers = () => {
-    const data = fs.readFileSync('./data/users.json');
-    return JSON.parse(data);
-};
+// Create a database connection pool
+const db = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
+});
 
 module.exports = (passport) => {
     passport.use(
-        new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-            const users = readUsers();
-            const user = users.find((u) => u.email.toLowerCase() === email.toLowerCase());
+        new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
+            try {
+                // Query the database for the user by email
+                const [rows] = await db.query('SELECT * FROM users WHERE email = ?', [email.toLowerCase()]);
 
-            if (!user) {
-                return done(null, false, { message: 'User not found' });
-            }
+                if (rows.length === 0) {
+                    return done(null, false, { message: 'User not found' });
+                }
 
-            bcrypt.compare(password, user.password, (err, isMatch) => {
-                if (err) throw err;
+                const user = rows[0];
 
+                // Compare hashed passwords
+                const isMatch = await bcrypt.compare(password, user.password);
                 if (isMatch) {
-                    return done(null, user);
+                    return done(null, user); // Login successful
                 } else {
                     return done(null, false, { message: 'Incorrect password' });
                 }
-            });
+            } catch (err) {
+                console.error('Error during authentication:', err);
+                return done(err);
+            }
         })
     );
 
     passport.serializeUser((user, done) => {
-        done(null, user.id);
+        done(null, user.id); // Serialize the user by ID
     });
 
-    passport.deserializeUser((id, done) => {
-        const users = readUsers();
-        const user = users.find((u) => u.id === id);
-        done(null, user);
+    passport.deserializeUser(async (id, done) => {
+        try {
+            const [rows] = await db.query('SELECT * FROM users WHERE id = ?', [id]);
+            if (rows.length > 0) {
+                done(null, rows[0]); // User found
+            } else {
+                done(null, false); // User not found
+            }
+        } catch (err) {
+            console.error('Error deserializing user:', err);
+            done(err);
+        }
     });
 };

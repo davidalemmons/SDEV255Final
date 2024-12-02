@@ -225,19 +225,20 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 
-app.post('/login', async (req, res, next) => {
+app.post('/login', (req, res, next) => {
     passport.authenticate('local', async (err, user, info) => {
         if (err) {
             console.error('Error during authentication:', err);
             req.flash('error_msg', 'An error occurred during authentication');
             return res.redirect('/login');
         }
+
         if (!user) {
             req.flash('error_msg', info.message || 'Invalid email or password');
             return res.redirect('/login');
         }
 
-        req.logIn(user, async (err) => {
+        req.logIn(user, (err) => {
             if (err) {
                 console.error('Error during login:', err);
                 req.flash('error_msg', 'Failed to log in');
@@ -249,6 +250,7 @@ app.post('/login', async (req, res, next) => {
         });
     })(req, res, next);
 });
+
 
 // Logout Route
 app.get('/logout', (req, res) => {
