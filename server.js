@@ -134,6 +134,14 @@ app.post('/schedule/add', ensureAuthenticated, async (req, res) => {
             throw new Error('Course does not exist');
         }
 
+        // Check to see if course is already in schedule
+        const [currentCourse] = await db.query('SELECT * FROM schedule WHERE courseId = ?', [courseId])
+        const repeat = false
+        if (currentCourse.length !== 0) {
+            repeat = true
+            throw new Error('Course is already in schedule')
+            
+        }
         // Insert into schedule
         await db.query(
             'INSERT INTO schedule (userId, courseId) VALUES (?, ?)',
@@ -144,8 +152,14 @@ app.post('/schedule/add', ensureAuthenticated, async (req, res) => {
         res.redirect('/courses');
     } catch (error) {
         console.error('Error adding course to schedule:', error);
+        if (repeat = true) {
+            req.flash('error_msg', 'Class is already in your schedule');
+            res.redirect('/courses');
+        }
+        else {
         req.flash('error_msg', 'Failed to add course to your schedule');
         res.redirect('/courses');
+        }
     }
 });
 
