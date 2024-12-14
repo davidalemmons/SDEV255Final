@@ -10,6 +10,10 @@ h1 {
     color: #0b6623; /* Ivy Tech green */
 }
 
+#mobile {
+    display: none;
+}
+
 .navbar {
     background-color: #0b6623;
     color: white;
@@ -22,6 +26,10 @@ h1 {
 }
 
 .navbar a:hover {
+    color: #979e99;
+}
+
+.navbar button:hover {
     color: #979e99;
 }
 
@@ -121,4 +129,46 @@ footer a:hover {
 
 #subjects .btn {
     margin-left: 5px;
+}
+
+@media only screen and (max-width: 700px) {
+    #desktop {
+      display: none;
+    }
+    #mobile {
+        display: flex;
+    }
+    .flex-parent {
+      flex-direction: column;
+      align-items: center;
+    }
+    .nav-mobile {
+        width: 100%;
+        padding: 1em;
+    }
+    nav form {
+        width: 100%;
+    }
+    .search {
+        padding: 10px;
+        margin-left: 3%;
+    }
+    .logo {
+        padding-left: 5%;
+    }
+    body {
+        padding: 0;
+    }
+    nav button {
+        margin-right: 5%;
+    }
+    .navbar a {
+        margin: 0;
+    }
+    .logout {
+        border: none;
+        margin: 0;
+        text-align: left;
+        color:#ffffff;
+    }
 }
